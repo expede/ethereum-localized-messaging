@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 import "./Localization.sol";
 
@@ -20,7 +20,7 @@ contract LocalizationPreferences {
     }
 
     /// @dev Primarily for testing
-    function get(bytes32 _code, address _who) public view returns (bool, string) {
+    function get(bytes32 _code, address _who) public view returns (bool found_, string memory text_) {
         string memory text = getLocalizationFor(_who).textFor(_code);
 
         if (keccak256(abi.encodePacked(text)) != empty_) {
@@ -33,7 +33,7 @@ contract LocalizationPreferences {
     /// @notice Retrieve text for a code found at the user’s preferred Localization contract
     /// @param _code The code to use to retrieve the text representation
     /// @return (bool, string) tuple: true if found and false otherwise, the corresponding message or default message or empty string
-    function textFor(bytes32 _code) external view returns (bool, string) {
+    function textFor(bytes32 _code) external view returns (bool found_, string memory text_) {
         return get(_code, tx.origin);
     }
 

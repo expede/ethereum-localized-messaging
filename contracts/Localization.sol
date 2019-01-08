@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.0;
 
 /// @title Holds a simple mapping of codes to their text representations
 contract Localization {
@@ -9,14 +9,18 @@ contract Localization {
     /// @notice Sets a mapping of a code to its text representation
     /// @param _code The code with which to associate the text
     /// @param _message The text representation
-    function set(bytes32 _code, string _message) internal {
+    function set(bytes32 _code, string memory _message) internal {
         dictionary_[_code] = _message;
+    }
+
+    function set(bytes32 _code, string storage _message) internal {
+      dictionary_[_code] = _message;
     }
 
     /// @notice Fetches the localized text representation.
     /// @param _code The code to lookup
     /// @return The text representation for given code, or an empty string
-    function textFor(bytes32 _code) external view returns (string _message) {
+    function textFor(bytes32 _code) external view returns (string memory _message) {
         return dictionary_[_code];
     }
 }
