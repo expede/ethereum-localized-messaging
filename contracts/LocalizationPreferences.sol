@@ -15,9 +15,9 @@ contract LocalizationPreferences {
 
     /// @notice Registers a user’s preferred Localization
     /// @dev The registering user is considered tx.origin
-    /// @param _localization The localization to set for the registering user
+    /// @param localization The localization to set for the registering user
     function set(Localization localization) external {
-        registry_[tx.origin] = localization;
+        registry[tx.origin] = localization;
     }
 
     /// @dev Primarily for testing
