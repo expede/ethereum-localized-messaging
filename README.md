@@ -19,7 +19,7 @@ npm install ethereum-localized-messaging
 Implement your own localizations:
 
 ```solidity
-pragma solidity ^0.5.2;
+pragma solidity ^0.5.1;
 
 import "/ethereum-localized-messaging/contracts/Localization.sol";
 
@@ -42,7 +42,7 @@ contract PirateLocalization is Localization {
 ```
 
 ```solidity
-pragma solidity ^0.5.2;
+pragma solidity ^0.5.1;
 
 import "/ethereum-localized-messaging/contracts/LocalizationPreferences.sol";
 import "./PirateLocalization.sol";
