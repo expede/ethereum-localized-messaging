@@ -1,4 +1,4 @@
-pragma solidity ^0.5.2;
+pragma solidity ^0.5.1;
 
 /// @title Holds a simple mapping of codes to their text representations
 contract Localization {
