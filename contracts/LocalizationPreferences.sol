@@ -22,10 +22,10 @@ contract LocalizationPreferences {
 
     /// @dev Primarily for testing
     function get(bytes32 code, address who) public view returns (bool found, string memory text) {
-        string memory text = getLocalizationFor(who).textFor(code);
+        string memory _text = getLocalizationFor(who).textFor(code);
 
-        if (keccak256(abi.encodePacked(text)) != EMPTY) {
-            return (true, text);
+        if (keccak256(abi.encodePacked(_text)) != EMPTY) {
+            return (true, _text);
         } else {
             return (false, defaultLocalization.textFor(code));
         }
